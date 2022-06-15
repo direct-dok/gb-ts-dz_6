@@ -39,9 +39,10 @@ export function getFavoritesAmount () {
 
 export function toggleFavoriteItem(e) {
   let jsonData = e.target.closest('.result').getAttribute('data-info-hotel'),
-      storageData = {};
+      storageData = {},
+      result = null;
   if(!localStorage.getItem('favoriteItems')) {
-    let result = getDataJson(jsonData, ['id', 'name', 'image'])
+    result = getDataJson(jsonData, ['id', 'name', 'image'])
     storageData[result.id] = result;
     localStorage.setItem('favoriteItems', JSON.stringify(storageData))
     e.target.classList.add('active');
@@ -58,7 +59,7 @@ export function toggleFavoriteItem(e) {
     }
 
     if(dataLocalStorage[result.id]) {
-      delete dataLocalStorage[result.id] = result;
+      delete dataLocalStorage[result.id] = result
       localStorage.setItem('favoriteItems', JSON.stringify(dataLocalStorage))
       e.target.classList.remove('active');
       return;
