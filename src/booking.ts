@@ -28,7 +28,7 @@ export function booking(e) {
     }
 }
 
-export function addNumberToOrder(arrayOrders ,objectOrder) {
+export function addNumberToOrder(arrayOrders, objectOrder) {
     arrayOrders.push(objectOrder)
     localStorage.setItem('booking', convertObjectToJson(arrayOrders))
     alert(orderInformation(objectOrder))

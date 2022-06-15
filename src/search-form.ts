@@ -48,12 +48,12 @@ export function renderSearchFormBlock (dateToday:string, lastDayNextMoth:string)
   )
 }
 
-export function filterSortResult(e, formSelector = null) {
+export function filterSortResult(e: Event, formSelector: String = null) {
   let formElement = checkPageElement(formSelector)
   processingSearchForm(null, formElement, e.target.value)
 }
 
-export function processingSearchForm(e, formDomElement = null, actionFilter = 'all'): void {
+export function processingSearchForm(e: Event, formDomElement: Object = null, actionFilter: String = 'all'): void {
   
   let allInputs = null
 
@@ -86,7 +86,7 @@ export function processingSearchForm(e, formDomElement = null, actionFilter = 'a
   search(dataSearch, resultSearch, actionFilter)
 }
 
-export async function search(dataSearch: SearchFormData, callBack, filterAction): void {
+export async function search(dataSearch: SearchFormData, callBack: Function, filterAction: String): Void {
 
   let sdkApi = new SdkApi(dataSearch)
   let homyApi = new HomyApi(dataSearch)
@@ -134,24 +134,24 @@ export function filterSearchResult(array: Object[], actionFilter: String): Objec
   return results;
 }
 
-export function actionsForFilter() {
+export function actionsForFilter(): Object {
   return {
-    all: function (arr) {
+    all: function (arr: Object[]) {
       return arr
     },
-    cheap: function (arr) {
+    cheap: function (arr: Object[]) {
       let result = arr.sort(function(a, b) {
         return a.price - b.price
       })
       return result
     },
-    expensive: function (arr) {
+    expensive: function (arr: Object[]) {
       let result = arr.sort(function(a, b) {
         return b.price - a.price
       })
       return result
     },
-    closer: function (arr) {
+    closer: function (arr: Object[]) {
       let result = arr.sort(function(a, b) {
         return a.remoteness - b.remoteness
       })

@@ -30,7 +30,7 @@ export default class Dates {
         return Dates._parseDate(day);
     }
 
-    static _parseDate(date) :string {
+    static _parseDate(date: any) :string {
         let year = date.getFullYear()
         let month = addPrefixNull(date.getMonth() + 1)
         let day = addPrefixNull(date.getDate())
